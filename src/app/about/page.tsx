@@ -18,25 +18,26 @@ export default function AboutPage() {
       <SiteHeader forceSolid />
 
       <main className="bg-gauze pt-24">
-        {/* Page intro */}
-        <section className="border-b border-[var(--line)] bg-mist py-14 md:py-20">
+        <section className="border-b border-[var(--line)] bg-mist py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
-            <p className="text-xs tracking-[0.3em] text-gold">ABOUT</p>
-            <h1 className="font-serif-tc mt-3 text-4xl text-ink md:text-5xl">關於我們</h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
-              {company.museum}｜以文創保溫杯結合信仰溫度、藝術美學與減塑減紙減碳的環保行動，
-              期望改變世界、讓大地更永續。
+            <p className="section-label">ABOUT</p>
+            <h1 className="font-serif-tc mt-3 text-[clamp(2rem,4vw,2.75rem)] tracking-[0.06em] text-ink">
+              關於我們
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-[1.95] text-ink-soft">
+              {company.museum}
+              ｜以文創保溫杯結合信仰溫度、藝術美學與減塑減紙減碳的環保行動，期望改變世界、讓大地更永續。
             </p>
 
             <nav
               aria-label="關於我們章節"
-              className="mt-10 flex flex-wrap gap-2 md:gap-3"
+              className="mt-10 flex flex-wrap gap-2.5"
             >
               {aboutNav.map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  className="border border-[var(--line)] bg-gauze px-3 py-2 text-sm text-ink-soft transition hover:border-rose/40 hover:text-rose"
+                  className="border border-[var(--line)] bg-gauze px-3.5 py-2 text-[0.8125rem] leading-snug tracking-wide text-ink-soft transition hover:border-rose/40 hover:text-rose"
                 >
                   {item.label}
                 </a>
@@ -45,41 +46,43 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[220px_1fr] md:gap-14 md:px-8 md:py-20">
-          {/* Sticky side nav (desktop) */}
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-[200px_1fr] md:gap-16 md:px-8 md:py-20 lg:gap-20">
           <aside className="hidden md:block">
-            <div className="sticky top-28 space-y-1">
-              <p className="mb-4 text-xs tracking-[0.25em] text-smoke">章節導覽</p>
-              {aboutNav.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  className="block border-l-2 border-transparent py-2 pl-3 text-sm leading-snug text-ink-soft transition hover:border-rose hover:text-rose"
-                >
-                  {item.label}
-                </a>
-              ))}
+            <div className="sticky top-28">
+              <p className="mb-5 text-[0.6875rem] tracking-[0.28em] text-smoke">
+                章節導覽
+              </p>
+              <div className="space-y-0.5">
+                {aboutNav.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="block border-l-2 border-transparent py-2.5 pl-3.5 text-[0.875rem] leading-snug text-ink-soft transition hover:border-rose hover:text-rose"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
               <Link
                 href="/#products"
-                className="mt-8 inline-block bg-rose px-4 py-2.5 text-sm tracking-wide text-white transition hover:bg-rose-deep"
+                className="mt-10 inline-block bg-rose px-4 py-2.5 text-[0.8125rem] tracking-[0.12em] text-white transition hover:bg-rose-deep"
               >
                 查看商品售價
               </Link>
             </div>
           </aside>
 
-          {/* Sections */}
-          <div className="min-w-0 space-y-16 md:space-y-24">
+          <div className="min-w-0 space-y-16 md:space-y-20">
             {aboutSections.map((section, index) => (
               <article
                 key={section.id}
                 id={section.id}
-                className="scroll-mt-28 border-b border-[var(--line)] pb-16 last:border-b-0 last:pb-0 md:pb-24"
+                className="scroll-mt-28 border-b border-[var(--line)] pb-16 last:border-b-0 last:pb-0 md:pb-20"
               >
-                <p className="text-xs tracking-[0.3em] text-gold">
+                <p className="section-index">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <h2 className="font-serif-tc mt-3 text-2xl text-ink md:text-3xl">
+                <h2 className="font-serif-tc mt-3 text-[clamp(1.45rem,2.5vw,1.85rem)] leading-snug tracking-[0.04em] text-ink">
                   {section.title}
                 </h2>
 
@@ -107,21 +110,25 @@ export default function AboutPage() {
                   </div>
                 )}
 
-                <div className="mt-8 space-y-5 text-base leading-[1.95] text-ink-soft">
-                  {section.paragraphs.map((p, i) => (
-                    <p key={`${section.id}-${i}`}>{p}</p>
-                  ))}
-                </div>
+                {section.paragraphs.length > 0 && (
+                  <div className="prose-stack mt-8">
+                    {section.paragraphs.map((p, i) => (
+                      <p key={`${section.id}-${i}`}>{p}</p>
+                    ))}
+                  </div>
+                )}
 
                 {section.blocks && (
-                  <div className="mt-8 grid gap-4 sm:grid-cols-1">
+                  <div className="mt-8 grid gap-4">
                     {section.blocks.map((block) => (
                       <div
                         key={block.heading}
-                        className="border border-[var(--line)] bg-mist/70 p-6 md:p-8"
+                        className="border border-[var(--line)] bg-mist/70 px-6 py-7 md:px-8 md:py-8"
                       >
-                        <h3 className="font-serif-tc text-xl text-ink">{block.heading}</h3>
-                        <p className="mt-3 text-base leading-[1.9] text-ink-soft">
+                        <h3 className="font-serif-tc text-[1.2rem] tracking-wide text-ink">
+                          {block.heading}
+                        </h3>
+                        <p className="mt-3.5 text-base leading-[2] text-ink-soft">
                           {block.body}
                         </p>
                       </div>
@@ -131,16 +138,16 @@ export default function AboutPage() {
               </article>
             ))}
 
-            <div className="flex flex-wrap gap-4 border-t border-[var(--line)] pt-10">
+            <div className="flex flex-wrap gap-3.5 border-t border-[var(--line)] pt-10">
               <Link
                 href="/#products"
-                className="bg-rose px-6 py-3 text-sm tracking-[0.15em] text-white transition hover:bg-rose-deep"
+                className="bg-rose px-6 py-3.5 text-[0.8125rem] tracking-[0.15em] text-white transition hover:bg-rose-deep"
               >
                 回到商品售價
               </Link>
               <Link
                 href="/#contact"
-                className="border border-ink/20 px-6 py-3 text-sm tracking-[0.15em] text-ink transition hover:border-rose hover:text-rose"
+                className="border border-ink/20 px-6 py-3.5 text-[0.8125rem] tracking-[0.15em] text-ink transition hover:border-rose hover:text-rose"
               >
                 聯絡我們
               </Link>

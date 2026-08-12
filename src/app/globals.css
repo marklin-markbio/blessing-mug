@@ -13,6 +13,8 @@
   --gold: #a8926a;
   --gold-soft: #d4c4a0;
   --line: rgba(42, 34, 38, 0.12);
+  --space-section: clamp(4.5rem, 8vw, 7rem);
+  --space-block: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 @theme inline {
@@ -44,6 +46,10 @@ body {
   background: var(--mist);
   color: var(--ink);
   font-family: var(--font-noto-sans), "Noto Sans TC", sans-serif;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
@@ -59,55 +65,117 @@ body {
   font-family: var(--font-noto-serif), "Noto Serif TC", serif;
 }
 
+/* Section rhythm */
+.section-pad {
+  padding-block: var(--space-section);
+}
+
+.section-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.32em;
+  line-height: 1.4;
+  color: var(--gold);
+}
+
+.section-title {
+  margin-top: 0.75rem;
+  font-family: var(--font-noto-serif), "Noto Serif TC", serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.section-lead {
+  margin-top: 1.25rem;
+  max-width: 40rem;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.prose-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.prose-stack > p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
 /* Refined product pricing */
+.price-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
 .price-original {
   display: flex;
   align-items: baseline;
-  gap: 0.28em;
+  gap: 0.35em;
+  margin: 0;
   color: var(--smoke);
-  text-decoration: line-through;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
 }
 
 .price-original .price-currency {
   font-family: var(--font-cormorant), "Cormorant Garamond", serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
+  line-height: 1;
 }
 
 .price-original .price-num {
   font-family: var(--font-cormorant), "Cormorant Garamond", serif;
   font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  font-variant-numeric: lining-nums;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .price-current {
   display: flex;
   align-items: baseline;
-  gap: 0.35em;
+  gap: 0.4em;
+  margin: 0;
   color: var(--rose-deep);
 }
 
 .price-current .price-currency {
   font-family: var(--font-cormorant), "Cormorant Garamond", serif;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
+  line-height: 1;
   color: var(--gold);
-  transform: translateY(-0.15em);
+  transform: translateY(-0.08em);
 }
 
 .price-current .price-num {
   font-family: var(--font-cormorant), "Cormorant Garamond", serif;
-  font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+  font-size: clamp(1.75rem, 3vw, 2.15rem);
   font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  font-variant-numeric: lining-nums;
+  letter-spacing: 0.03em;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.section-index {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--gold);
 }
 
 /* Incense smoke layers */
@@ -182,7 +250,7 @@ body {
 
 .incense-line {
   width: 1.5px;
-  height: 72px;
+  height: 64px;
   background: linear-gradient(180deg, var(--rose-soft), var(--ink) 70%);
   border-radius: 999px;
   position: relative;
@@ -240,12 +308,6 @@ body {
 .writing-vertical {
   writing-mode: vertical-rl;
   letter-spacing: 0.35em;
-}
-
-.product-visual {
-  background:
-    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.95), transparent 45%),
-    linear-gradient(165deg, #f3e8eb 0%, #e8dde1 45%, #dcc8ce 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

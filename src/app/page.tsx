@@ -38,7 +38,6 @@ export default function Home() {
       <SiteHeader />
 
       <main id="top">
-        {/* Hero — full-bleed 主視覺 + 官方 logo */}
         <section className="relative min-h-[100svh] overflow-hidden bg-[#f7e9df]">
           <Image
             src="/brand/hero.webp"
@@ -48,30 +47,29 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-top md:object-center"
           />
-          {/* 僅底部輕遮，保留 Hero 圖本身的媽祖／粉紅超跑視覺 */}
-          <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-ink/70 via-ink/25 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[44%] bg-gradient-to-t from-ink/75 via-ink/30 to-transparent" />
 
-          <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-12 pt-24 md:px-8 md:pb-16 md:pt-28">
+          <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-5 pb-14 pt-28 md:px-8 md:pb-20">
             <div className="max-w-xl animate-fade-up-delay-2">
-              <p className="text-xs tracking-[0.28em] text-rose-soft">
+              <p className="text-[0.6875rem] tracking-[0.3em] text-rose-soft">
                 {siteCopy.heroEyebrow}
               </p>
-              <h1 className="font-serif-tc mt-2 text-[clamp(1.7rem,4vw,2.4rem)] leading-snug tracking-wide text-white">
+              <h1 className="font-serif-tc mt-3 text-[clamp(1.7rem,4vw,2.35rem)] leading-[1.35] tracking-[0.06em] text-white">
                 {siteCopy.heroTitle}
               </h1>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-white/88 md:text-[15px]">
+              <p className="mt-4 max-w-md text-[0.9375rem] leading-[1.9] text-white/88">
                 {siteCopy.heroLead}
               </p>
-              <div className="mt-7 flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
                   href="#products"
-                  className="bg-rose px-7 py-3.5 text-sm tracking-[0.18em] text-white transition hover:bg-rose-deep"
+                  className="bg-rose px-7 py-3.5 text-[0.8125rem] tracking-[0.18em] text-white transition hover:bg-rose-deep"
                 >
                   查看商品售價
                 </a>
                 <a
                   href="#gallery"
-                  className="border border-white/40 px-7 py-3.5 text-sm tracking-[0.18em] text-white transition hover:bg-white/10"
+                  className="border border-white/40 px-7 py-3.5 text-[0.8125rem] tracking-[0.18em] text-white transition hover:bg-white/10"
                 >
                   品牌形象
                 </a>
@@ -80,21 +78,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Products */}
-        <section id="products" className="scroll-mt-24 bg-gauze py-20 md:py-28">
+        <section id="products" className="section-pad scroll-mt-24 bg-gauze">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <div className="max-w-2xl">
-              <p className="text-xs tracking-[0.3em] text-gold">PRODUCTS · 商品售價</p>
-              <h2 className="font-serif-tc mt-3 text-3xl text-ink md:text-4xl">
-                祈福保溫杯系列
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink-soft">
-                {siteCopy.productsIntro}
+              <p className="section-label">PRODUCTS · 商品售價</p>
+              <h2 className="section-title">祈福保溫杯系列</h2>
+              <p className="section-lead">{siteCopy.productsIntro}</p>
+              <p className="mt-3 text-[0.875rem] leading-relaxed text-smoke">
+                {company.promoNote}
               </p>
-              <p className="mt-3 text-sm text-smoke">{company.promoNote}</p>
             </div>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -102,26 +97,23 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Gallery — all images */}
-        <section id="gallery" className="scroll-mt-24 border-y border-[var(--line)] bg-mist py-20 md:py-28">
+        <section
+          id="gallery"
+          className="section-pad scroll-mt-24 border-y border-[var(--line)] bg-mist"
+        >
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <div className="max-w-2xl">
-              <p className="text-xs tracking-[0.3em] text-gold">BRAND · 品牌形象</p>
-              <h2 className="font-serif-tc mt-3 text-3xl text-ink md:text-4xl">
-                品牌形象
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink-soft">
-                {siteCopy.galleryIntro}
-              </p>
+              <p className="section-label">BRAND · 品牌形象</p>
+              <h2 className="section-title">品牌形象</h2>
+              <p className="section-lead">{siteCopy.galleryIntro}</p>
             </div>
 
-            <div className="mt-12 columns-1 gap-4 sm:columns-2 lg:columns-3">
+            <div className="mt-12 columns-1 gap-5 sm:columns-2 sm:gap-6 lg:columns-3">
               {galleryItems.map((item) => (
                 <figure
                   key={item.src}
-                  className="mb-4 break-inside-avoid overflow-hidden border border-[var(--line)] bg-gauze"
+                  className="mb-5 break-inside-avoid overflow-hidden border border-[var(--line)] bg-gauze sm:mb-6"
                 >
-                  {/* 使用原生 img，避免擴充功能／開發工具注入節點造成 hydration mismatch */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={item.src}
@@ -130,7 +122,7 @@ export default function Home() {
                     loading="lazy"
                     decoding="async"
                   />
-                  <figcaption className="px-4 py-3 text-sm text-ink-soft">
+                  <figcaption className="px-4 py-3.5 text-[0.8125rem] leading-relaxed tracking-wide text-ink-soft">
                     {item.caption}
                   </figcaption>
                 </figure>
@@ -139,50 +131,47 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Blessing story */}
         <section
           id="blessing"
-          className="scroll-mt-24 relative overflow-hidden bg-mist-deep py-20 md:py-28"
+          className="section-pad scroll-mt-24 relative overflow-hidden bg-mist-deep"
         >
           <SmokeField />
-          <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-[1.15fr_0.85fr] md:px-8 md:gap-16">
+          <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-[1.15fr_0.85fr] md:gap-16 md:px-8 lg:gap-20">
             <div>
-              <p className="text-xs tracking-[0.3em] text-gold">BLESSING · 祈福</p>
-              <h2 className="font-serif-tc mt-3 text-3xl leading-snug text-ink md:text-4xl">
+              <p className="section-label">BLESSING · 祈福</p>
+              <h2 className="section-title leading-snug">
                 白沙屯媽祖
                 <br />
                 {siteCopy.blessingTitle}
               </h2>
-              <p className="mt-6 text-base leading-[1.9] text-ink-soft">
-                {siteCopy.blessingP1}
-              </p>
-              <p className="mt-4 text-base leading-[1.9] text-ink-soft">
-                {siteCopy.blessingP2}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-smoke">
-                {siteCopy.limitedNote}
-              </p>
+              <div className="prose-stack mt-7">
+                <p>{siteCopy.blessingP1}</p>
+                <p>{siteCopy.blessingP2}</p>
+                <p className="!text-[0.875rem] !leading-[1.9] !text-smoke">
+                  {siteCopy.limitedNote}
+                </p>
+              </div>
             </div>
 
-            <aside className="flex flex-col justify-center border border-[var(--line)] bg-gauze/85 p-8 md:p-10">
-              <div className="incense-line mb-8" />
-              <p className="font-serif-tc text-xl leading-relaxed text-ink md:text-2xl">
+            <aside className="flex flex-col justify-center border border-[var(--line)] bg-gauze/90 px-7 py-8 md:px-9 md:py-10">
+              <div className="incense-line mb-7" />
+              <p className="font-serif-tc text-[1.2rem] leading-[1.75] tracking-wide text-ink md:text-[1.4rem]">
                 「{siteCopy.blessingQuote}」
               </p>
-              <p className="mt-6 text-sm tracking-wide text-smoke">
+              <p className="mt-5 text-[0.8125rem] tracking-[0.04em] text-smoke">
                 — 創辦人 {company.founder} · 白沙屯拱天宮祈福紀實
               </p>
-              <div className="mt-10 grid grid-cols-2 gap-4 border-t border-[var(--line)] pt-6 text-sm">
+              <div className="mt-8 grid grid-cols-2 gap-5 border-t border-[var(--line)] pt-6 text-[0.875rem]">
                 <div>
-                  <p className="text-smoke">認證</p>
-                  <p className="mt-1 text-ink">拱授證第114-048號</p>
+                  <p className="text-[0.75rem] tracking-wide text-smoke">認證</p>
+                  <p className="mt-1.5 leading-relaxed text-ink">拱授證第114-048號</p>
                 </div>
                 <div>
-                  <p className="text-smoke">合作製造</p>
-                  <p className="mt-1 text-ink">{company.partner}</p>
+                  <p className="text-[0.75rem] tracking-wide text-smoke">合作製造</p>
+                  <p className="mt-1.5 leading-relaxed text-ink">{company.partner}</p>
                 </div>
               </div>
-              <div className="relative mt-8 aspect-[16/10] overflow-hidden border border-[var(--line)]">
+              <div className="relative mt-7 aspect-[16/10] overflow-hidden border border-[var(--line)]">
                 <Image
                   src="/gallery/pink-supercar-alt.jpg"
                   alt="粉紅超跑隨行杯"
@@ -195,27 +184,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Series */}
-        <section id="series" className="scroll-mt-24 bg-gauze py-20 md:py-28">
+        <section id="series" className="section-pad scroll-mt-24 bg-gauze">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <div className="max-w-2xl">
-              <p className="text-xs tracking-[0.3em] text-gold">SERIES · 生活主軸</p>
-              <h2 className="font-serif-tc mt-3 text-3xl text-ink md:text-4xl">
-                安 · 樂 · 文 · 財 · 禱
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink-soft">
-                {siteCopy.seriesIntro}
-              </p>
+              <p className="section-label">SERIES · 生活主軸</p>
+              <h2 className="section-title">安 · 樂 · 文 · 財 · 禱</h2>
+              <p className="section-lead">{siteCopy.seriesIntro}</p>
             </div>
 
             <div className="mt-12 grid gap-px bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-5">
               {(Object.keys(seriesCopy) as Array<keyof typeof seriesCopy>).map((key) => (
-                <div key={key} className="bg-gauze p-6 md:p-7">
-                  <p className="font-serif-tc text-3xl text-rose">{key}</p>
-                  <h3 className="mt-3 text-base font-medium text-ink">
+                <div key={key} className="bg-gauze px-6 py-7 md:px-7 md:py-8">
+                  <p className="font-serif-tc text-[2rem] leading-none text-rose">{key}</p>
+                  <h3 className="mt-4 text-[0.95rem] font-medium leading-snug tracking-wide text-ink">
                     {seriesCopy[key].title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-smoke">
+                  <p className="mt-3 text-[0.8125rem] leading-[1.85] text-smoke">
                     {seriesCopy[key].desc}
                   </p>
                 </div>
@@ -224,35 +208,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* About teaser */}
-        <section id="about" className="scroll-mt-24 bg-mist py-20 md:py-28">
+        <section id="about" className="section-pad scroll-mt-24 bg-mist">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:items-start">
+            <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-16">
               <div>
-                <p className="text-xs tracking-[0.3em] text-gold">ABOUT · 關於我們</p>
-                <h2 className="font-serif-tc mt-3 text-3xl text-ink md:text-4xl">
-                  {company.museum}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-smoke">{company.brandEn}</p>
-                <p className="mt-6 text-base leading-[1.9] text-ink-soft">{siteCopy.aboutP1}</p>
+                <p className="section-label">ABOUT · 關於我們</p>
+                <h2 className="section-title">{company.museum}</h2>
+                <p className="mt-2.5 text-[0.875rem] leading-relaxed tracking-wide text-smoke">
+                  {company.brandEn}
+                </p>
+                <p className="mt-6 text-base leading-[2] text-ink-soft">{siteCopy.aboutP1}</p>
                 <Link
                   href="/about"
-                  className="mt-8 inline-block bg-rose px-6 py-3 text-sm tracking-[0.15em] text-white transition hover:bg-rose-deep"
+                  className="mt-8 inline-block bg-rose px-6 py-3.5 text-[0.8125rem] tracking-[0.15em] text-white transition hover:bg-rose-deep"
                 >
                   閱讀完整關於我們
                 </Link>
               </div>
               <div>
-                <p className="text-xs tracking-[0.25em] text-smoke">章節目錄</p>
-                <ul className="mt-4 space-y-0">
+                <p className="text-[0.6875rem] tracking-[0.28em] text-smoke">章節目錄</p>
+                <ul className="mt-3">
                   {aboutNav.map((item) => (
                     <li key={item.id}>
                       <Link
                         href={`/about#${item.id}`}
-                        className="group flex items-center justify-between border-b border-[var(--line)] py-4 text-ink transition hover:text-rose"
+                        className="group flex items-center justify-between gap-4 border-b border-[var(--line)] py-[1.05rem] text-ink transition hover:text-rose"
                       >
-                        <span className="font-serif-tc text-lg md:text-xl">{item.label}</span>
-                        <span className="text-smoke transition group-hover:translate-x-1 group-hover:text-rose">
+                        <span className="font-serif-tc text-[1.05rem] leading-snug tracking-wide md:text-[1.15rem]">
+                          {item.label}
+                        </span>
+                        <span className="shrink-0 text-smoke transition group-hover:translate-x-1 group-hover:text-rose">
                           →
                         </span>
                       </Link>
@@ -264,62 +249,69 @@ export default function Home() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section id="faq" className="scroll-mt-24 border-t border-[var(--line)] bg-gauze py-20 md:py-28">
+        <section
+          id="faq"
+          className="section-pad scroll-mt-24 border-t border-[var(--line)] bg-gauze"
+        >
           <div className="mx-auto max-w-3xl px-5 md:px-8">
-            <p className="text-xs tracking-[0.3em] text-gold">FAQ · 常見問題</p>
-            <h2 className="font-serif-tc mt-3 text-3xl text-ink">購物須知</h2>
+            <p className="section-label">FAQ · 常見問題</p>
+            <h2 className="section-title">購物須知</h2>
             <div className="mt-10 divide-y divide-[var(--line)]">
               {faqs.map((item) => (
-                <details key={item.q} className="group py-5">
-                  <summary className="cursor-pointer list-none text-lg text-ink marker:content-none">
-                    <span className="flex items-start justify-between gap-4">
-                      {item.q}
-                      <span className="text-smoke transition group-open:rotate-45">+</span>
+                <details key={item.q} className="group py-6">
+                  <summary className="cursor-pointer list-none text-[1.05rem] leading-snug tracking-wide text-ink marker:content-none">
+                    <span className="flex items-start justify-between gap-5">
+                      <span>{item.q}</span>
+                      <span className="mt-0.5 shrink-0 text-smoke transition group-open:rotate-45">
+                        +
+                      </span>
                     </span>
                   </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{item.a}</p>
+                  <p className="mt-4 pr-8 text-[0.9375rem] leading-[1.9] text-ink-soft">
+                    {item.a}
+                  </p>
                 </details>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact */}
         <section
           id="contact"
-          className="scroll-mt-24 relative overflow-hidden bg-ink py-20 text-gauze md:py-28"
+          className="section-pad scroll-mt-24 relative overflow-hidden bg-ink text-gauze"
         >
           <div className="pointer-events-none absolute inset-0 opacity-25" aria-hidden="true">
             <div className="smoke-plume !opacity-40" />
             <div className="smoke-plume !opacity-30" />
           </div>
           <div className="relative z-10 mx-auto max-w-6xl px-5 text-center md:px-8">
-            <p className="text-xs tracking-[0.3em] text-rose-soft">CONTACT</p>
-            <h2 className="font-serif-tc mt-4 text-3xl md:text-4xl">
+            <p className="text-[0.6875rem] tracking-[0.32em] text-rose-soft">CONTACT</p>
+            <h2 className="font-serif-tc mt-3 text-[clamp(1.75rem,3vw,2.25rem)] tracking-[0.06em]">
               誠摯訂購 · 平安加持永遠相隨
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/70 md:text-base">
+            <p className="mx-auto mt-5 max-w-lg text-[0.9375rem] leading-[1.9] text-white/70">
               歡迎香客與家人來信詢問商品與配送。希望明年三月，大家一起舉起粉紅超跑，大聲呼喊「進喔」！
             </p>
             <a
               href={`mailto:${company.email}`}
-              className="mt-8 inline-block bg-rose px-8 py-3.5 text-sm tracking-[0.18em] text-white transition hover:bg-rose-deep"
+              className="mt-8 inline-block bg-rose px-8 py-3.5 text-[0.8125rem] tracking-[0.18em] text-white transition hover:bg-rose-deep"
             >
               {company.email}
             </a>
-            <div className="mx-auto mt-12 grid max-w-2xl gap-6 text-left text-sm text-white/75 sm:grid-cols-3">
+            <div className="mx-auto mt-14 grid max-w-2xl gap-8 text-left text-[0.875rem] text-white/75 sm:grid-cols-3 sm:gap-6">
               <div>
-                <p className="text-white/45">地址</p>
-                <p className="mt-1 leading-relaxed">{company.address}</p>
+                <p className="text-[0.75rem] tracking-wide text-white/45">地址</p>
+                <p className="mt-2 leading-[1.8]">{company.address}</p>
               </div>
               <div>
-                <p className="text-white/45">統一編號</p>
-                <p className="mt-1">{company.taxId}</p>
+                <p className="text-[0.75rem] tracking-wide text-white/45">統一編號</p>
+                <p className="font-display mt-2 text-[1.05rem] tracking-[0.08em] tabular-nums">
+                  {company.taxId}
+                </p>
               </div>
               <div>
-                <p className="text-white/45">客服信箱</p>
-                <p className="mt-1">{company.email}</p>
+                <p className="text-[0.75rem] tracking-wide text-white/45">客服信箱</p>
+                <p className="mt-2 leading-[1.8] break-all">{company.email}</p>
               </div>
             </div>
           </div>
