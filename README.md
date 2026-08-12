@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 馬克文創官方網站
 
-## Getting Started
+祈福馬克杯／保溫瓶形象官網（Next.js），可直接部署至 Vercel。
 
-First, run the development server:
+## 本機開發
 
 ```bash
+cd website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+開啟 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 建置
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 部署到 Vercel（商業使用）
 
-To learn more about Next.js, take a look at the following resources:
+1. 將 `website` 資料夾推上 GitHub（或整個專案，並在 Vercel 設定 Root Directory 為 `website`）
+2. 前往 [vercel.com](https://vercel.com) → Import Project
+3. Framework Preset 選 **Next.js**，Root Directory 設為 `website`
+4. Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+自訂網域可在 Vercel → Project → Settings → Domains 綁定（例如 blessingmug.com）。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 內容來源
 
-## Deploy on Vercel
+品牌文案、商品售價、公司資訊依《馬克文創有限公司》PDF／既有官網資料整理：
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 商品優惠價 NT$1,800（原價 NT$2,200）
+- 地址：台北市中山區松江路101號4樓之2
+- 客服：service@blessingmug.com
+- 統編：93640608
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 後續可擴充
+
+- 接上真正結帳（Shopify / ECPay / NewebPay）
+- 上傳商品實拍照替換目前示意視覺
+- 會員與購物車
